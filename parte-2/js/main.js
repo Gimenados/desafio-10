@@ -1,38 +1,16 @@
 // Parte 7
-function Libro(titulo, autor, precio, isbn, paginas, idioma, foto, sinopsis) {
-    
-    //Parte 8 
-    this.titulo = titulo;
-    this.autor = autor;
-    this.precio = precio;
-    this.isbn = isbn;
-    this.paginas = paginas;
-    this.idioma = idioma;
-    this.foto = foto;
-    this.sinopsis = sinopsis;
-}
-
-Libro.prototype.mostrarDatosEnConsola = function () {
-    console.log(`Título: ${this.titulo}, Autor: ${this.autor}, Precio: ${this.precio}, ISBN: ${this.isbn}, Páginas: ${this.paginas}, Idioma: ${this.idioma}, Foto: ${this.foto}, Sinopsis: ${this.sinopsis}`);
-};
-
-Libro.prototype.mostrarDatosEnAlert = function () {
-    alert(`Título: ${this.titulo}, Autor: ${this.autor}, Precio: ${this.precio}, ISBN: ${this.isbn}, Páginas: ${this.paginas}, Idioma: ${this.idioma}, Foto: ${this.foto}, Sinopsis: ${this.sinopsis}`);
-};
-
-Libro.prototype.getTitulo = function () {
-    return this.titulo;
-};
-
-Libro.prototype.mostrarDatos = function (tipo = 'console') {
-    const mensaje = `Título: ${this.titulo}, Autor: ${this.autor}, Precio: ${this.precio}, ISBN: ${this.isbn}, Páginas: ${this.paginas}, Idioma: ${this.idioma}, Foto: ${this.foto}, Sinopsis: ${this.sinopsis}`;
-
-    if (tipo === 'alert') {
-        alert(mensaje);
-    } else {
-        console.log(mensaje);
+class Libro {
+    constructor (titulo, autor, precio, isbn, paginas, idioma, foto, sinopsis) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.precio = precio;
+        this.isbn = isbn;
+        this.paginas = paginas;
+        this.idioma = idioma;
+        this.foto = foto;
+        this.sinopsis = sinopsis;
     }
-};
+}
 
 //Parte 9
  let libro1 = new Libro(
@@ -46,13 +24,6 @@ Libro.prototype.mostrarDatos = function (tipo = 'console') {
     'El legendario debut de Stephen King, sobre una marginada adolescente y la venganza que ejerce sobre sus compañeros de clase.'
   );
   console.log(libro1);
-
-
-//Agrego libro 1 pero lo comento asi no aparece en la parte 3
-let seccionLibros = document.getElementById('libros');
-seccionLibros.innerHTML += libro1.getHtmlArticle();
-
-libro1.mostrarDatosEnConsola();
 
 //Parte 10
 Libro.prototype.getHtmlArticle = function () {
@@ -139,21 +110,21 @@ let libroCocinemosJuntos = new Libro(
 );
 
 
-let htmlLibrosExistentes = document.getElementById('libros').innerHTML;
+// let htmlLibrosExistentes = document.getElementById('libros').innerHTML;
 
 // Parte 13
-let htmlNuevosLibros = libro1.getHtmlArticle() +
-                       libroDespierta.getHtmlArticle() +
-                       libroConfianzaCiega.getHtmlArticle() +
-                       libroCocinemosJuntos.getHtmlArticle() +
-                       libroSoldeMediaNoche.getHtmlArticle();
+// let htmlNuevosLibros = libro1.getHtmlArticle() +
+//                        libroDespierta.getHtmlArticle() +
+//                        libroConfianzaCiega.getHtmlArticle() +
+//                        libroCocinemosJuntos.getHtmlArticle() +
+//                        libroSoldeMediaNoche.getHtmlArticle();
 
 //Parte 14
-elemLibrosContainer.innerHTML = htmlLibrosExistentes + htmlNuevosLibros;
+// elemLibrosContainer.innerHTML = htmlLibrosExistentes + htmlNuevosLibros;
 
-const elementos = document.getElementById("libros").children;
-[ a, b, c ] = elementos;
-elemLibrosContainer.innerHTML = a.innerHTML + htmlNuevosLibros;
+// const elementos = document.getElementById("libros").children;
+// [ a, b, c ] = elementos;
+// elemLibrosContainer.innerHTML = a.innerHTML + htmlNuevosLibros;
 
 //Parte 16 
 
@@ -172,9 +143,9 @@ class Libreria {
     }
 }
 
-let libros = [libro1, libro2, libro3, libro4];
-let libreria = new Libreria(libros);
-libreria.cargarElementoConLibros(id_destino);
+// let libros = [libro1, libro2, libro3, libro4];
+// let libreria = new Libreria(libros);
+// libreria.cargarElementoConLibros(id_destino);
 
 //Parte 17
-(new Libreria([libro1, libro2, libro3, libro4])).cargarElementoConLibros('libros');
+(new Libreria([libroDespierta, libroCocinemosJuntos, libroConfianzaCiega, libroSoldeMediaNoche])).cargarElementoConLibros('libros');
